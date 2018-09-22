@@ -1,0 +1,38 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>CSS Formatter</title>
+  <link rel="stylesheet" href="./bower_components/semantic-ui-button/button.min.css">
+  <script src="./bower_components/ace-builds/src-min-noconflict/ace.js"></script>
+  <script src="./bower_components/vkBeautify/vkbeautify.js"></script>
+  <style type="text/css" media="screen">
+      #editor {
+          width: 100%;
+          height: 90%;
+          font-size: 16px;
+      }
+  </style>
+</head>
+<body>
+  <div id="editor">.example {width: 100%; height: 90%; font-size: 16px;}</div>
+  <center>
+    <button class="ui primary button" onClick="beautify()">Beautify</button>
+    <button class="ui primary button" onClick="compress()">Compress</button>
+  </center>
+  <script>
+      var editor = ace.edit("editor");
+      editor.setTheme("ace/theme/monokai");
+      editor.session.setMode("ace/mode/css");
+
+      function beautify() {
+        let value = editor.getValue();
+        editor.setValue(vkbeautify.css(value).replace(/ {5}/g, '    '));
+      }
+
+      function compress() {
+        let value = editor.getValue();
+        editor.setValue(value.replace(/\n[ ]+/g, '\n').replace(/[ ]+\n/g, '\n').replace(/\n/g, '').trim());
+      }
+  </script>
+</body>
+</html>
