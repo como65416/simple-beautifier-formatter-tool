@@ -1,0 +1,23 @@
+{
+  "name": "Simple Beautifier Formatter Tool",
+  "description": "",
+  "main": "",
+  "authors": [
+    "comoco <como65416@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/como65416/simple-beautifier-formatter-tool",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "ace-builds": "^1.4.1",
+    "semantic-ui-button": "^2.4.0",
+    "sql-formatter": "^1.1.2",
+    "vkBeautify": "vkbeautify#*"
+  }
+}
