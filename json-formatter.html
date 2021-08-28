@@ -25,7 +25,24 @@
 
       function beautify() {
         let value = editor.getValue();
-        editor.setValue(JSON.stringify(JSON.parse(value), null, 4));
+        let obj = JSON.parse(value);
+        if (isJSONString(obj)) {
+          obj = JSON.parse(obj);
+        }
+        editor.setValue(JSON.stringify(obj, null, 4));
+      }
+
+      function isJSONString(value) {
+        if (typeof value != 'string') {
+          return false
+        }
+
+        try {
+          JSON.parse(value);
+        } catch (e) {
+          return false
+        }
+        return true
       }
 
       function compress() {
